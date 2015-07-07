@@ -4,6 +4,7 @@
   "description": "",
   "main": "concat.js",
   "dependencies": {
+    "browserify": "^10.2.4",
     "concat-stream": "^1.5.0",
     "request": "^2.58.0",
     "split": "^1.0.0",
