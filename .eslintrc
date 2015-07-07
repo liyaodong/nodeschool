@@ -42,6 +42,7 @@
     "wx": true,
     "_": true,
     "Swiper": true,
-    "AMap": true
+    "AMap": true,
+    "React": true,
   }
 }
