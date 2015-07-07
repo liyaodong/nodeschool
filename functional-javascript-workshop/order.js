@@ -1,9 +1,7 @@
 function repeat(operation, num) {
-  var i = 0;
-  while(i < num) {
-    i++;
-    operation();
-  }
+  if (num <= 0) return;
+  operation();
+  return repeat(operation, --num);
 }
 
 // Do not remove the line below
