@@ -1,12 +1,12 @@
 var React = require('react');
 
 var TodoBox = React.createClass({
-  render: function () {
+  render: function() {
     return (
       <div className="todoBox">
         <h1>Todos</h1>
-        <TodoList />
-        <TodoForm />
+        <TodoList data = {this.props.data}/>
+        <TodoForm/>
       </div>
     );
   }
@@ -14,12 +14,15 @@ var TodoBox = React.createClass({
 
 var TodoList = React.createClass({
   render: function() {
+    var todo = this.props.data.map(function(obj) {
+      return <Todo key={obj.title} title={obj.title}>{obj.detail}</Todo>;
+    });
+
     return (
       <div className = "todoList">
         <table style={{border: '2px solid black'}}>
           <tbody>
-            <Todo title="Shopping">Milk</Todo>
-            <Todo title="Hair cut">13:00</Todo>
+            {todo}
           </tbody>
         </table>
       </div>
@@ -32,16 +35,20 @@ var Todo = React.createClass({
     title: React.PropTypes.string.isRequired
   },
   getInitialState: function() {
-    return {checked: false};
+    return {
+      checked: false
+    };
   },
   handleChange: function(e) {
-    this.setState({checked: e.target.checked});
+    this.setState({
+      checked: e.target.checked
+    });
   },
-  render: function () {
+  render: function() {
     return (
       <tr>
         <td style={style.tableContent}>
-          <input type="checkbox" checked={this.state.checked} onChange={this.handleChange} />
+          <input checked={this.state.checked} onChange={this.handleChange} type="checkbox"/>
         </td>
         <td style={style.tableContent}>{this.props.title}</td>
         <td style={style.tableContent}>{this.props.children}</td>
@@ -51,7 +58,7 @@ var Todo = React.createClass({
 });
 
 var TodoForm = React.createClass({
-  render: function () {
+  render: function() {
     return (
       <div className="todoForm">
         I am a TodoForm.
