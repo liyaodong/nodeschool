@@ -1,10 +1,10 @@
 function getShortMessages(messages) {
-  var arr = [];
-  messages.map(function (val) {
-    if(val.message.length < 50) arr.push(val.message);
+  return messages.filter(function (val) {
+    if(val.message.length < 50) return val.message;
+  }).map(function (val) {
+    return val.message;
   });
 
-  return arr;
 }
 
 module.exports = getShortMessages;
