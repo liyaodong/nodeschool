@@ -1,6 +1,6 @@
-module.exports = function arrayMap(arr, fn) {
-  return arr.reduce(function (pre, current) {
-    pre.push(fn(current));
+module.exports = function arrayMap(arr, fn, thisArg) {
+  return arr.reduce(function (pre, current, index, arr) {
+    pre.push(fn.call(thisArg, current, index, arr));
     return pre;
   }, []);
 }
