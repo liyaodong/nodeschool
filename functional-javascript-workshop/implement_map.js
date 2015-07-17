@@ -3,4 +3,4 @@ module.exports = function arrayMap(arr, fn, thisArg) {
     pre.push(fn.call(thisArg, current, index, arr));
     return pre;
   }, []);
-}
+};
