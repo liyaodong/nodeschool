@@ -4,7 +4,8 @@
     "arrowFunctions": true,
     "blockBindings": true,
     "generators": true,
-    "forOf": true
+    "forOf": true,
+    "templateStrings ": true
   },
   "rules": {
     "strict": 0,
